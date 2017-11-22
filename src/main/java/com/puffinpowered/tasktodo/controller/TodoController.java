@@ -33,8 +33,8 @@ public class TodoController {
 	}
 
 
-	@RequestMapping(value="/{id}", method={RequestMethod.PATCH, RequestMethod.PUT})
-	public ResponseEntity<Todo> update(@PathVariable(value = "id") Long id, @RequestParam(value = "input") Todo input) throws ValidationError {
+	@RequestMapping(value="/{id}", method=RequestMethod.PATCH )
+	public ResponseEntity<Todo> update(@PathVariable(value = "id") Long id, @RequestBody Todo input) throws ValidationError {
 		Todo item = todoService.updateItem(id, input) ;
 		return new ResponseEntity<Todo>(item, HttpStatus.OK);
 	}
