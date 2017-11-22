@@ -42,6 +42,10 @@ http://localhost:8081
 	   Content-Type: application/json
 
 	   GET http://localhost:8081/tasks/validateBrackets?input=ldldld
+	   
+	   GET http://localhost:8081/todo/1
+	   
+	   POST http://localhost:8081/todo    body:  { "text": "Finish the API" }
 
 ### Running Locally
 
