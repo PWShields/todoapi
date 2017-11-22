@@ -1,6 +1,6 @@
 
 # Tasks To Do
-Test for Auto and General,  November 2017
+ November 2017
 
 ##### Implements Mandatory Feature Set
 
