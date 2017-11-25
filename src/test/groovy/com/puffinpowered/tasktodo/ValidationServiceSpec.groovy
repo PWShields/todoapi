@@ -2,7 +2,6 @@ package com.puffinpowered.tasktodo
 
 import com.puffinpowered.tasktodo.service.ValidationService
 import com.puffinpowered.tasktodo.service.ValidationServiceImpl
-import org.springframework.beans.factory.annotation.Autowired
 import spock.lang.Shared
 import spock.lang.Specification
 
