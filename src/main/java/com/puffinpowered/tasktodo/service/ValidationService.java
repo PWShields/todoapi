@@ -6,7 +6,9 @@ public interface ValidationService {
 
 	ValidationError buildValidationError(String input, String text);
 
-	Boolean validate(String input);
+	Boolean validateText(String input);
 
 	Boolean checkBrackets(String input);
+
+	Boolean validateIsComplete(Boolean isCompleted);
 }

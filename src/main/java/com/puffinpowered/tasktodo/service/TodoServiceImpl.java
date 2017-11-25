@@ -1,14 +1,10 @@
 package com.puffinpowered.tasktodo.service;
 
 import com.puffinpowered.tasktodo.domain.Todo;
-import com.puffinpowered.tasktodo.exception.Detail;
-import com.puffinpowered.tasktodo.exception.Message;
 import com.puffinpowered.tasktodo.exception.ResourceNotFoundException;
-import com.puffinpowered.tasktodo.exception.ValidationError;
 import com.puffinpowered.tasktodo.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
 
@@ -26,7 +22,7 @@ public class TodoServiceImpl implements TodoService {
 
 	@Override
 	public Todo createItem(Todo newItem) {
-		Boolean isInputValid = validationService.validate(newItem.getText());
+		Boolean isInputValid = validationService.validateText(newItem.getText());
 		if (isInputValid == Boolean.FALSE) {
 			throw validationService.buildValidationError(newItem.getText(), "text");
 		} else {
@@ -54,16 +50,23 @@ public class TodoServiceImpl implements TodoService {
 	 */
 	@Override
 	public Todo updateItem(Long id, Todo newDetails) {
-		Todo todo = todoRepository.findOne(id);
-		 if (newDetails != null) {
-		 	if (newDetails.getIsCompleted() != null) {
-		 		todo.setIsCompleted(newDetails.getIsCompleted());
-		    }
-		    if (newDetails.getText() != null & !StringUtils.isEmpty(newDetails.getText())){
-		 		todo.setText(newDetails.getText());
-		    }
-		 }
-		return todoRepository.save(todo);
+			Todo  todo = this.fetchItem(id);
+			if (newDetails != null) {
+				if (newDetails.getIsCompleted() != null) {
+					Boolean isInputValid = validationService.validateIsComplete(newDetails.getIsCompleted());
+					todo.setIsCompleted(newDetails.getIsCompleted());
+				}
+				if (newDetails.getText() != null ) {
+					Boolean isInputValid = validationService.validateText(newDetails.getText());
+					if (isInputValid == Boolean.FALSE) {
+						throw validationService.buildValidationError(newDetails.getText(), "text");
+					}
+					todo.setText(newDetails.getText());
+				}
+				todoRepository.save(todo);
+			}
+//			}
+		return  todo;
 	}
 
 

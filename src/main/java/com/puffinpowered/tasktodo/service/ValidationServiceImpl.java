@@ -23,9 +23,8 @@ public class ValidationServiceImpl implements ValidationService {
 	}
 
 	@Override
-	public Boolean validate(String input) {
+	public Boolean validateText(String input) {
 		Boolean result = Boolean.FALSE;
-
 		if (StringUtils.hasLength(StringUtils.trimAllWhitespace(input)) && input.length() <= 50)  {
 			result = Boolean.TRUE;
 		}
@@ -52,6 +51,11 @@ public class ValidationServiceImpl implements ValidationService {
 			}
 		}
 		return stack.empty();
+	}
+
+	@Override
+	public Boolean validateIsComplete(Boolean isCompleted) {
+		return null;
 	}
 
 

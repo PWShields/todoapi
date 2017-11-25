@@ -1,5 +1,6 @@
 package com.puffinpowered.tasktodo.exception;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.puffinpowered.tasktodo.exception.ValidationResponse;
 import com.puffinpowered.tasktodo.exception.ValidationError;
 import org.springframework.core.Ordered;
@@ -33,6 +34,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		NotFoundResponse notFoundResponse = new NotFoundResponse(details);
 		return new ResponseEntity<NotFoundResponse>(notFoundResponse, ex.getStatus());
 
+	}
+
+	//Todo: Validate isComplete data
+	@ExceptionHandler(JsonMappingException.class)
+	protected ResponseEntity<String>  handleOtherErrors(JsonMappingException ex){
+		return new ResponseEntity<String>(ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
 	}
 
 

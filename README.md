@@ -10,7 +10,7 @@
 
 3. Todo: GET todo
 
-4. Todo: PATCH todo (although maybe a PUT would be better?)
+4. Todo: PATCH todo (although maybe a PUT would be better, if we are being extremely pedantic the difference between the two is that PATCH only replaces the values specified while a PUT might replace the entire object thereby potentially loosing existing values, however it really depends on matching the business use-case with the implementation?)
 
 
 ##### Implements Optional Feature Set

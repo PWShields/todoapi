@@ -23,7 +23,7 @@ public class TaskServiceImpl implements TaskService {
 	public BalanceTestResult validateBrackets(String input) throws ValidationError {
 
 		BalanceTestResult response = new BalanceTestResult();
-		Boolean isInputValid = validationService.validate(input);
+		Boolean isInputValid = validationService.validateText(input);
 		if (isInputValid == Boolean.FALSE) {
 			throw validationService.buildValidationError(input, "input");
 		} else {
