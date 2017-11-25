@@ -32,10 +32,18 @@
 
 http://localhost:8081
 
-### Production
+### Dev
+
+https://powerful-basin-57715.herokuapp.com/
+
+NB This is a Free Heroku dyno which means it goes to sleep during periods of activity
+so you may need to wake it up with an initial request sometimes
 
 ## Usage
 
+Note we are using an in memory database so you will have to add a record with a POST
+before you can GET or PATCH it. If the service is restarted any in memory data will
+be gone.
 
 ### API Usage
 	   
@@ -46,6 +54,9 @@ http://localhost:8081
 	   GET http://localhost:8081/todo/1
 	   
 	   POST http://localhost:8081/todo    body:  { "text": "Finish the API" }
+	   
+	   PATCH http://localhost:8081/todo/1   body: { "text: "Finished the API" }
+
 
 ### Running Locally
 
@@ -67,6 +78,9 @@ This project uses Maven as its build tool.
 ### Command line
 
 mvn test 
+
+or run the individual test file
+e.g. ValidationServiceSpec
 
 
 ## Notes
