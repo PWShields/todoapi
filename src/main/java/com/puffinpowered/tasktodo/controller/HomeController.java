@@ -16,9 +16,9 @@ public class HomeController {
 	@RequestMapping(method= RequestMethod.GET)
 	public ResponseEntity<ExceptionResponse> show() throws Exception{
 		    ExceptionResponse exceptionResponse = new ExceptionResponse();
-		    exceptionResponse.setErrorCode(HttpStatus.OK.value());
+		    exceptionResponse.setErrorCode(HttpStatus.BAD_REQUEST.value());
 		    exceptionResponse.setErrorMessage("Welcome to TaskToDo, please check valid end points");
-		return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.OK);
+		return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 
 }
