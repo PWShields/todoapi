@@ -36,7 +36,7 @@ http://localhost:8081
 
 https://powerful-basin-57715.herokuapp.com/
 
-NB This is a Free Heroku dyno which means it goes to sleep during periods of activity
+NB This is a Free Heroku dyno which means it goes to sleep during periods of inactivity
 so you may need to wake it up with an initial request sometimes
 
 ## Usage
