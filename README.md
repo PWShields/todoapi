@@ -19,7 +19,7 @@
 2. Unit tests
 3. Documentation (this file)
 
-##Technologies
+## Technologies
 
 - Java
 - Spring MVC,Boot
@@ -37,7 +37,7 @@ http://localhost:8081
 https://powerful-basin-57715.herokuapp.com/
 
 NB This is a Free Heroku dyno which means it goes to sleep during periods of inactivity
-so you may need to wake it up with an initial request sometimes
+so you will need to wake it up with an initial request!
 
 ## Usage
 
